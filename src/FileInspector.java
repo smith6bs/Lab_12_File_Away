@@ -4,7 +4,7 @@ import java.io.*;
 public class FileInspector {
 
     public static void main(String[] args) {
-        // Create a JFileChooser to let the user pick a text file
+        // Create a JFileChooser to let the user pick a text file and open it in src
         JFileChooser fileChooser = new JFileChooser("src");
 
         // Show the Open dialog and capture user response
@@ -26,11 +26,10 @@ public class FileInspector {
 
                 // Read the file line by line
                 while ((line = reader.readLine()) != null) {
-                    lineCount++;  // Increment line counter
+                    lineCount++;  // have linecount starting at zero above this increases by 1 every time it counts
                     System.out.println(line);  // Echo the line to the console
 
-                    // Count words in this line
-                    // Split the line by whitespace (one or more spaces, tabs, etc.)
+                    // This has space be the delimeter it splits by then counts words in the line
                     String[] words = line.trim().split("\\s+");
                     if (!line.trim().isEmpty()) {
                         wordCount += words.length;
@@ -48,7 +47,7 @@ public class FileInspector {
                 System.out.println("Number of Characters: " + charCount);
 
             } catch (IOException e) {
-                // Handle any input/output errors gracefully
+                // Handle any input/output errors
                 System.out.println("Error reading the file: " + e.getMessage());
             }
 
@@ -58,5 +57,4 @@ public class FileInspector {
         }
     }
 }
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
